@@ -1,0 +1,53 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar padding="0" class="fondoLogo" >    
+  </ion-toolbar>
+</ion-header>
+
+<ion-toolbar>
+  <ion-buttons slot="end">
+    <ion-button *ngIf=verCarrito size="small"  [routerLink]="['/carrito']" >
+      <ion-icon name="cart" size="large" color="secundary"></ion-icon>
+      {{conteoProducto}}
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+
+  <ion-list *ngFor="let i of items">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img src={{i.imagen}} />    
+        </ion-col>
+      </ion-row>
+      <ion-row>  
+        <ion-col>
+          C$ {{i.precio}}
+        </ion-col>
+        <ion-col>
+          <ion-icon name="cart-outline" (click)="addProducto(i);"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-list>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="logo-facebook" color="primary" (click)="irFaceBook();"></ion-icon>
+      <ion-icon name="logo-whatsapp" color="success"  (click)="irWhatsApp();"></ion-icon>
+    </ion-title>    
+  </ion-toolbar>
+  <ion-toolbar>   
+    <ion-title style="font-size: small;">
+      Derechos reservados 
+      © 2020-2024
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

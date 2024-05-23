@@ -1,0 +1,74 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar padding="0" class="fondoLogo">
+  </ion-toolbar>
+</ion-header>
+
+<ion-toolbar>
+<ion-buttons slot="start">
+  <ion-button size="small" (click)="alCatalogo();">al catálogo</ion-button>
+</ion-buttons>
+<ion-buttons slot="end">
+  <ion-button *ngIf=verBotonLimpia size="small" (click)="limpiaCarrito();">limpia carrito</ion-button>
+</ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+
+  <ion-list *ngFor="let i of items;let j=index;" show-delete="showDeleteItem">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img src={{i.imagen}}  />
+        </ion-col>              
+        <ion-col>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                Precio: {{i.precio}}        
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Cantidad: {{i.cantidad}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Total: {{i.precio*i.cantidad}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-icon size="small" name="add-circle-outline" (click)="sumaProducto(j);"></ion-icon>       
+                <ion-icon size="small" name="remove-circle-outline" (click)="restaProducto(j);"></ion-icon>
+                <ion-icon color="danger" size="small" name="trash-outline" (click)="borraProducto(j);"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>          
+        </ion-col>
+      </ion-row>      
+    </ion-grid>
+
+  </ion-list>
+
+  
+  <ion-button expand="block" size="small" (click)="setMensaje();">Comprar</ion-button>
+
+    
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="logo-facebook" color="primary" (click)="irFaceBook();"></ion-icon>
+      <ion-icon name="logo-whatsapp" color="success"  (click)="irWhatsApp();"></ion-icon>
+    </ion-title>    
+  </ion-toolbar>
+  <ion-toolbar>   
+    <ion-title style="font-size: small;">
+      Derechos reservados 
+      © 2020-2024
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,7 @@
+{
+  "name": "applaynic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
